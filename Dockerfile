@@ -13,7 +13,7 @@ COPY . .
 ENTRYPOINT ["node", "app.js"]
 
 
-FROM alpine
+FROM debian:sid
 COPY run.sh /usr/src/app/run.sh
 COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
 RUN set -ex\
