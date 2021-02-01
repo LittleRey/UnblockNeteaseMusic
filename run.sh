@@ -1,3 +1,3 @@
 
 cd /usr/src/app
-node app.js -p 8080 -o migu
+node app.js -p ${PORT} -o migu
