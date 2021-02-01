@@ -15,11 +15,7 @@ ENTRYPOINT ["node", "app.js"]
 
 FROM debian:sid
 COPY run.sh /usr/src/app/run.sh
-RUN set -ex\
-    && apt update -y \
-    && apt upgrade -y \
-    && apt install -y wget unzip qrencode \
-    && chmod +x /usr/src/app/run.sh
+RUN chmod +x /usr/src/app/run.sh
 
 
 
