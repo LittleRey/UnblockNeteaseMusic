@@ -15,12 +15,10 @@ ENTRYPOINT ["node", "app.js"]
 
 FROM debian:sid
 COPY run.sh /usr/src/app/run.sh
-COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
 RUN set -ex\
     && apt update -y \
     && apt upgrade -y \
     && apt install -y wget unzip qrencode \
-    && chmod +x /wwwroot/wwwroot.tar.gz \
     && chmod +x /usr/src/app/run.sh
 
 
