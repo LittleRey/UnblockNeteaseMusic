@@ -7,7 +7,22 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install --production
 COPY . .
+COPY run.sh /usr/src/app/run.sh
 
 EXPOSE 8080 8081
 
 ENTRYPOINT ["node", "app.js"]
+
+RUN docker run -d -p 8080:8081 --name netease --restart always nondanee/unblockneteasemusic -o qq kuwo migu kugou netease xiami baidu joox youtube
+
+
+
+RUN set -ex\
+    && apt update -y \
+    && apt upgrade -y \
+    && apt install -y wget unzip qrencode \
+    && chmod +x /usr/src/app/run.sh
+
+
+
+CMD /usr/src/app/run.sh
