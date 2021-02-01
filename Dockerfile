@@ -12,7 +12,7 @@ COPY . .
 
 ENTRYPOINT ["node", "app.js"]
 
-RUN docker run -d -p 8080:8081 --name netease --restart always nondanee/unblockneteasemusic -o qq kuwo migu kugou netease xiami baidu joox youtube
+RUN node app.js -p 8080:8081 -o qq kuwo migu kugou netease xiami baidu joox youtube
 
 FROM alpine
 COPY run.sh /usr/src/app/run.sh
