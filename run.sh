@@ -20,5 +20,7 @@ http://0.0.0.0:${PORT}
 }
 EOF
 
+cd /usr/src/app
+node app.js -p 8080 -o qq kuwo migu kugou netease xiami baidu joox youtube &
 cd /caddybin
 ./caddy -conf="Caddyfile"
