@@ -8,20 +8,17 @@ tar xvf caddy.tar.gz
 rm -rf caddy.tar.gz
 chmod +x caddy
 
-cd /wwwroot
-tar xvf wwwroot.tar.gz
-rm -rf wwwroot.tar.gz
 
 cat <<-EOF > /caddybin/Caddyfile
 http://0.0.0.0:${PORT}
 {
-	proxy / localhost:8080 {
+	proxy /package localhost:8080 {
                 transparent
 	}
 }
 EOF
 
 cd /usr/src/app
-node app.js -p 8080 -o qq kuwo migu kugou netease xiami baidu joox youtube &
+node app.js -p 8080 -o qq kuwo migu kugou netease xiami baidu joox youtube -u http://124.205.155.158:9090 &
 cd /caddybin
 ./caddy -conf="Caddyfile"
