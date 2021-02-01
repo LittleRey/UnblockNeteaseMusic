@@ -15,8 +15,9 @@ rm -rf wwwroot.tar.gz
 cat <<-EOF > /caddybin/Caddyfile
 http://0.0.0.0:${PORT}
 {
-	gzip
-	proxy / localhost:8080
+	proxy / localhost:8080 {
+                transparent
+	}
 }
 EOF
 
