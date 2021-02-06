@@ -12,12 +12,11 @@ chmod +x caddy
 cat <<-EOF > /caddybin/Caddyfile
 http://0.0.0.0:${PORT}
 {
-    tls /etc/caddycerts/neteasetest.herokuapp.com.cer /etc/caddycerts/neteasetest.herokuapp.com.key
     proxy / localhost:8080
 }
 EOF
 
 cd /usr/src/app
-node app.js -p 8080 -o qq:kuwo:kugou &
+node app.js -p 8080 -o qq kuwo kugou joox &
 cd /caddybin
 ./caddy -conf="Caddyfile"
