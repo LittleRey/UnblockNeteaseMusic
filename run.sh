@@ -10,9 +10,10 @@ chmod +x caddy
 
 
 cat <<-EOF > /caddybin/Caddyfile
-http://0.0.0.0:${PORT}
+https://neteasetest.herokuapp.com:${PORT}
 {
-	proxy /package localhost:8080
+    tls /etc/caddycerts/neteasetest.herokuapp.com.cer /etc/caddycerts/neteasetest.herokuapp.com.key
+    proxy / localhost:8080
 }
 EOF
 
