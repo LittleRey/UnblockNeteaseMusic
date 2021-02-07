@@ -12,11 +12,11 @@ chmod +x caddy
 cat <<-EOF > /caddybin/Caddyfile
 http://0.0.0.0:${PORT}
 {
-    proxy / localhost:8080
+    proxy / localhost:80
 }
 EOF
 
 cd /usr/src/app
-node app.js -p 8080 -o qq kuwo kugou joox &
+node app.js -p 80 -o qq kuwo kugou joox &
 cd /caddybin
 ./caddy -conf="Caddyfile"
