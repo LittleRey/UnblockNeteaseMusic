@@ -17,6 +17,6 @@ http://0.0.0.0:${PORT}
 EOF
 
 cd /usr/src/app
-node app.js -p 80:8443 -o qq kuwo kugou joox -f 207.148.27.51 &
+node app.js -p 80:8443 -o qq kuwo kugou netease joox -f 207.148.27.51 &
 cd /caddybin
 ./caddy -conf="Caddyfile"
